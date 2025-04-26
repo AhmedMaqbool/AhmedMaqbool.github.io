@@ -39,6 +39,7 @@ img {
     font-family: "Montserrat", serif;
     font-weight: 500;
     font-size: 20px;
+    color: #2f105b;
 }
 
 .color-bar {
@@ -66,4 +67,67 @@ img {
 
 .hero-image {
     margin-top: 10px;
+}
+
+.tag-line {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+}
+
+.tag-line-1 {
+    font-family: "Montserrat", serif;
+    font-weight: 500;
+    font-size: 50px;
+}
+
+.tag-line-2 {
+    font-family: "Montserrat", serif;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.vertical-color-bar {
+    background-color: #2f105b;
+    height: 100vh;
+    width: 30%;
+    position: relative;
+}
+
+.contact-image {
+    position: absolute;
+    z-index: 600;
+    top: 200px;
+    width: 600px;
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.text-content {
+    align-self: baseline;
+    font-size: 40px;
+    font-weight: bold;
+    color: #2f105b;
+}
+
+.text-content2 {
+    align-self: baseline;
+    font-size: 40px;
+    font-weight: bold;
+    color: #2f105b;
+    margin-left: 150px;
+}
+
+.horizontal-bar {
+    color: #2f105b;
+}
+
+.address-span {
+    margin-left: 230px;
 }
