@@ -131,3 +131,14 @@ img {
 .address-span {
     margin-left: 230px;
 }
+
+.about-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.about-text-content {
+    align-self: baseline;
+    font-size: 55px;
+    color: #2f105b;
+}
