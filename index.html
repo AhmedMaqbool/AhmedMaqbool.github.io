@@ -4,46 +4,413 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
     <title>TechXcel Networks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            scroll-behavior: smooth;
+        }
+
+        .bg-tech-dark {
+            background-color: #2c004d;
+            /* A dark purple color */
+        }
+
+        .text-tech-light {
+            color: #d8c3ff;
+            /* A light purple color */
+        }
+
+        .border-tech-light {
+            border-color: #d8c3ff;
+        }
+
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+        }
+
+        .section-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .image-overlay {
+            background-image: url("https://placehold.co/1200x800/2c004d/d8c3ff?text=Your+Image+Here");
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* New image overlay style */
+        .image-overlay-new {
+            background-image: url("https://placehold.co/1920x1080/2c004d/d8c3ff?text=TechXcel+Networks");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Utility colors from the original stylesheet */
+        .bg-tech-dark {
+            background-color: #2c004d;
+        }
+
+        .text-tech-light {
+            color: #d8c3ff;
+        }
+
+        .bg-tech-dark {
+            background-color: #2c004d;
+        }
+
+        .text-tech-dark {
+            color: #2c004d;
+        }
+
+        .text-tech-light {
+            color: #d8c3ff;
+        }
+
+        .hover\:bg-gray-800:hover {
+            background-color: #1f2937;
+        }
+
+        .bg-tech-dark {
+            background-color: #2c004d;
+        }
+
+        .text-tech-dark {
+            color: #2c004d;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="page">
-        <div class="color-bar"></div>
-        <div class="header-container">
-            <div class="header">
-                <a href="./index.html">
-                <img width="150px" height="100px" src="./assests/logo.png" />
-                </a>
-                <a href="./index.html">
-                <span class="header-tabs home">Home</span>
-                </a>
-                <a href="./pages/manged-it-services.html">
-                <span class="header-tabs it-services">Manged IT Services</span>
-                </a>
-                <span class="header-tabs cybersecurity">Cybersecurity</span>
-                <span class="header-tabs cloud-solutions">Cloud Solutions</span>
-                <a href="pages/about.html">
-                    <span class="header-tabs about">About</span>
-                </a>
-                <a href="pages/contact.html">
-                    <span class="header-tabs contact">Contact</span>
-                </a>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full bg-tech-dark text-tech-light shadow-lg z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold tracking-wider">TECHXCEL NETWORKS</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="nav-link">ABOUT</a>
+                <a href="#vision" class="nav-link">VISION/MISSION</a>
+                <a href="#strategy" class="nav-link">BUSINESS STRATEGY</a>
+                <a href="#process" class="nav-link">THE PROCESS</a>
+                <a href="#services" class="nav-link">OUR SERVICE</a>
+                <a href="#contact" class="nav-link">CONTACT</a>
             </div>
+            <button id="mobile-menu-button" class="md:hidden text-tech-light focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
         </div>
-        <div class="hero-image">
-            <img width="100%" height="30%" src="./assests/hero-image.jpg" />
+        <div id="mobile-menu" class="hidden md:hidden bg-tech-dark text-tech-light">
+            <a href="#about" class="block py-2 px-4 hover:bg-gray-700">ABOUT</a>
+            <a href="#vision" class="block py-2 px-4 hover:bg-gray-700">VISION/MISSION</a>
+            <a href="#strategy" class="block py-2 px-4 hover:bg-gray-700">BUSINESS STRATEGY</a>
+            <a href="#process" class="block py-2 px-4 hover:bg-gray-700">THE PROCESS</a>
+            <a href="#services" class="block py-2 px-4 hover:bg-gray-700">OUR SERVICE</a>
+            <a href="#contact" class="block py-2 px-4 hover:bg-gray-700">CONTACT</a>
         </div>
-        <div class="tag-line">
-            <span class="tag-line-1">Our Services</span>
-            <span class="tag-line-2">Build For Trust</span>
-        </div>
-    </div>
+    </nav>
+
+    <main class="pt-16">
+        <!-- Home / Company Profile Section (Page 1) -->
+        <!-- <section id="home" class="h-screen flex items-center justify-center p-4 bg-gray-900 text-white image-overlay">
+            <div class="text-center bg-gray-900 bg-opacity-70 p-8 rounded-xl shadow-2xl">
+                <h1 class="text-5xl md:text-7xl font-bold tracking-widest uppercase">TECHXCEL NETWORKS</h1>
+                <p class="mt-4 text-xl md:text-2xl font-light">BUILT FOR TRUST.</p>
+                <div class="mt-8">
+                    <img src="https://placehold.co/150x150/2c004d/fff?text=Logo" alt="TechXcel Networks Logo"
+                        class="mx-auto rounded-full p-4 bg-white/10">
+                </div>
+            </div>
+        </section> -->
+
+        <section id="home" class="relative h-screen flex items-center justify-center p-4">
+            <div class="absolute inset-0 z-0 image-overlay-new"></div>
+            <div
+                class="absolute inset-0 z-10 bg-gradient-to-t from-tech-dark via-transparent to-transparent opacity-80">
+            </div>
+
+            <div class="relative z-20 text-center text-white">
+                <div
+                    class="bg-black bg-opacity-30 backdrop-blur-sm p-8 rounded-xl shadow-2xl transition-all duration-500 hover:bg-opacity-50">
+                    <h1
+                        class="text-6xl md:text-8xl font-extrabold tracking-tight uppercase leading-none drop-shadow-lg">
+                        TechXcel Networks
+                    </h1>
+                    <p class="mt-4 text-xl md:text-3xl font-light italic tracking-wider drop-shadow-lg">
+                        Innovating for tomorrow.
+                    </p>
+                    <a href="#about"
+                        class="mt-8 inline-block px-8 py-3 text-lg font-semibold text-tech-light border-2 border-tech-light rounded-full hover:bg-tech-light hover:text-tech-dark transition-all duration-300">
+                        Discover More
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section (Page 3) -->
+        <section id="about" class="py-20 px-4 md:px-12 bg-white">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12 text-tech-dark">About Us</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-lg leading-relaxed mb-4">
+                            <strong>Who We Are:</strong> We are experienced professionals for IT Services.
+                        </p>
+                        <p class="text-lg leading-relaxed mb-4">
+                            TechXcel Networks is a dynamic and dedicated company committed to its mission. With a focus
+                            on our core values, we strive to achieve our company goals.
+                        </p>
+                        <p class="text-lg leading-relaxed">
+                            Our team of experienced professionals is committed to providing exceptional products and
+                            services that exceed our customers' expectations.
+                        </p>
+                    </div>
+                    <div class="rounded-xl shadow-lg overflow-hidden">
+                        <img src="./assests/stock-image.jpg" alt="TechXcel Networks team"
+                            class="w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision/Mission Section (Page 4) -->
+        <section id="vision" class="py-20 px-4 md:px-12 bg-tech-dark text-tech-light">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-4">Mission & Vision</h2>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-12 mt-12">
+                    <div class="bg-white text-gray-800 p-8 rounded-xl shadow-lg max-w-lg">
+                        <h3 class="text-3xl font-semibold mb-4 text-tech-dark">Mission</h3>
+                        <p class="text-lg leading-relaxed">
+                            We are a dynamic and innovative business solutions provider with a commitment to excellence
+                            and innovation.
+                        </p>
+                    </div>
+                    <div class="bg-white text-gray-800 p-8 rounded-xl shadow-lg max-w-lg">
+                        <h3 class="text-3xl font-semibold mb-4 text-tech-dark">Vision</h3>
+                        <p class="text-lg leading-relaxed">
+                            We partner with organizations to achieve their strategic goals and drive sustainable growth.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business Strategy Section (Page 5) -->
+        <section id="strategy" class="py-20 px-4 md:px-12 bg-white">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12 text-tech-dark">Business Strategy</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="rounded-xl shadow-lg overflow-hidden">
+                        <img src="./assests/business.jpg" alt="Business Strategy Icons"
+                            class="w-full h-auto object-cover">
+                    </div>
+                    <div class="space-y-8">
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+                            <h3 class="text-2xl font-semibold text-tech-dark mb-2">STRATEGIC PARTNERSHIPS & NETWORKING
+                            </h3>
+                            <p class="text-lg leading-relaxed">
+                                Partnerships can help a small company expand its reach without huge investment. We
+                                collaborate with local businesses and startups to provide IT solutions and continuously
+                                collect client feedback to improve our services.
+                            </p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+                            <h3 class="text-2xl font-semibold text-tech-dark mb-2">CUSTOMER-CENTRIC APPROACH</h3>
+                            <p class="text-lg leading-relaxed">
+                                We stand out with great customer service by providing personalized IT solutions and
+                                focusing on after-sales support and fast response times.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Process Section (Page 6) -->
+        <section id="process" class="py-20 px-4 md:px-12 bg-gray-200">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12 text-tech-dark">The Process</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="text-5xl font-bold text-tech-dark mb-4">1</div>
+                        <h3 class="text-2xl font-semibold mb-2">CONSULTATION & REQUIREMENT ANALYSIS</h3>
+                        <p class="text-lg leading-relaxed">
+                            We take the time to understand the client's unique needs, challenges, and business goals to
+                            provide the best solutions.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="text-5xl font-bold text-tech-dark mb-4">2</div>
+                        <h3 class="text-2xl font-semibold mb-2">IMPLEMENTATION & DEPLOYMENT</h3>
+                        <p class="text-lg leading-relaxed">
+                            Our team executes and delivers the agreed-upon IT services with precision and efficiency.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="text-5xl font-bold text-tech-dark mb-4">3</div>
+                        <h3 class="text-2xl font-semibold mb-2">MAINTENANCE & SUPPORT</h3>
+                        <p class="text-lg leading-relaxed">
+                            We ensure smooth operation, security, and continuous improvements long after deployment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Service Section (Pages 7-9) -->
+        <section id="services" class="py-20 px-4 md:px-12 bg-tech-dark text-tech-light">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12">Our Services</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white text-gray-800 p-6 rounded-xl shadow-lg text-center">
+                        <h3 class="text-xl font-semibold text-tech-dark mb-2">BRANDING</h3>
+                        <p>We help you build a strong and recognizable brand identity that resonates with your target
+                            audience.</p>
+                    </div>
+                    <div class="bg-white text-gray-800 p-6 rounded-xl shadow-lg text-center">
+                        <h3 class="text-xl font-semibold text-tech-dark mb-2">DIGITAL MARKETING</h3>
+                        <p>Our digital marketing strategies drive traffic, engage customers, and grow your online
+                            presence.</p>
+                    </div>
+                    <div class="bg-white text-gray-800 p-6 rounded-xl shadow-lg text-center">
+                        <h3 class="text-xl font-semibold text-tech-dark mb-2">BUSINESS DEVELOPMENT</h3>
+                        <p>We work with you to identify new opportunities and strategies to expand your business and
+                            increase profitability.</p>
+                    </div>
+                    <div class="bg-white text-gray-800 p-6 rounded-xl shadow-lg text-center">
+                        <h3 class="text-xl font-semibold text-tech-dark mb-2">MARKETING PLAN</h3>
+                        <p>We develop comprehensive marketing plans tailored to your business goals and market
+                            landscape.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (Page 11) -->
+        <!-- <section id="contact" class="py-20 px-4 md:px-12 bg-gray-900 text-white image-overlay">
+            <div class="container mx-auto bg-gray-900 bg-opacity-70 p-8 rounded-xl shadow-2xl text-center">
+                <h2 class="text-4xl font-bold mb-4">Let's Connect With Us!</h2>
+                <p class="text-lg md:text-xl mb-8">Feel free to reach out to us for any inquiries or to start a new
+                    project.</p>
+                <div class="flex flex-col items-center space-y-4">
+                    <a href="mailto:info@techxcelnetworks.com"
+                        class="text-lg md:text-xl flex items-center hover:underline">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        info@techxcelnetworks.com
+                    </a>
+                    <a href="tel:+966561134258" class="text-lg md:text-xl flex items-center hover:underline">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 5a2 2 0 012-2h3.5l1 4a1 1 0 00.7.5l4.5-1a1 1 0 011.5 1L17 19a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
+                        </svg>
+                        +966 56 11 34 258
+                    </a>
+                    <a href="https://www.techxcelnetworks.com" target="_blank"
+                        class="text-lg md:text-xl flex items-center hover:underline">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 14a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM16 14a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                        </svg>
+                        www.techxcelnetworks.com
+                    </a>
+                </div>
+            </div>
+        </section> -->
+        <section id="contact" class="py-20 px-4 md:px-12 bg-white text-gray-800">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-tech-dark mb-4">Let's Connect.</h2>
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-12">
+                    Feel free to reach out to us for any inquiries or to start a new project. We'd love to hear from
+                    you.
+                </p>
+
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-16">
+                    <div class="flex flex-col items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-tech-dark mb-2" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <p class="text-lg font-semibold">Email Us</p>
+                        <a href="mailto:info@techxcelnetworks.com"
+                            class="text-gray-600 hover:underline">info@techxcelnetworks.com</a>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-tech-dark mb-2" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 5a2 2 0 012-2h3.5l1 4a1 1 0 00.7.5l4.5-1a1 1 0 011.5 1L17 19a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
+                        </svg>
+                        <p class="text-lg font-semibold">Call Us</p>
+                        <a href="tel:+966561134258" class="text-gray-600 hover:underline">+966593971673</a>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-tech-dark mb-2" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 14a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM16 14a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                        </svg>
+                        <p class="text-lg font-semibold">Our Website</p>
+                        <a href="https://www.techxcelnetworks.com" target="_blank"
+                            class="text-gray-600 hover:underline">www.techxcelnetworks.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-tech-dark text-tech-light text-center py-4 px-4">
+        <p>© 2025 TechXcel Networks. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
